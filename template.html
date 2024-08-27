@@ -4,23 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Inserter</title>
-    <style>
-        html, body {
-            height: 100% !important; /* Ensure body takes full height */
-            margin: 0; /* Remove default margins */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    
+<style>
+    html, body {
+        height: 100%; /* Ensure body takes full height */
+        margin: 0; /* Remove default margins */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .image {
+        outline: thick solid #000000; /* Outline around the image */
+        width: 256px; /* Default width */
+        height: 256px; /* Default height */
+        border-radius: 3rem;
+        object-fit: cover;
+        box-shadow: 0px 0px 10px #404040; /* Drop shadow */
+    }
+
+    /* Media query for tablets and small desktops */
+    @media (max-width: 768px) {
         .image {
-            outline: thick solid #000000; /* Outline around the image */
-            width: 256px;
-            height: 256px;
-            border-radius: 3rem;
-            object-fit: cover;
+            width: 200px; /* Adjusted width */
+            height: 200px; /* Adjusted height */
         }
-    </style>
+    }
+
+    /* Media query for mobile phones */
+    @media (max-width: 480px) {
+        .image {
+            width: 150px; /* Adjusted width */
+            height: 150px; /* Adjusted height */
+        }
+    }
+</style>
+
 
 </head>
 <body>
