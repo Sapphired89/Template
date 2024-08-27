@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Inserter</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .image {
+            width: 256px;
+            height: 256px;
+            border-radius: 3rem;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img id="dynamicImage" class="image" />
+    </div>
+
+    <script>
+        // Function to get query parameters
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Get the image URL from the query parameters
+        const imageUrl = getQueryParam('image');
+
+        // Set the image src attribute
+        if (imageUrl) {
+            document.getElementById('dynamicImage').src = imageUrl;
+        } else {
+            // Optionally, set a default image or handle the missing URL case
+            document.getElementById('dynamicImage').alt = 'No image provided';
+        }
+    </script>
+</body>
+</html>
