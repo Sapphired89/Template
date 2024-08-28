@@ -4,16 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Inserter</title>
+<style>
+    html, body {
+        height: 100%; /* Ensure body takes full height */
+        margin: 0; /* Remove default margins */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .image {
+        outline: thick solid #000000; /* Outline around the image */
+        width: 256px; /* Default width */
+        height: 256px; /* Default height */
+        border-radius: 3rem;
+        object-fit: cover;
+        box-shadow: 0px 0px 10px #404040; /* Drop shadow */
+    }
+
+    /* Media query for tablets and small desktops */
+    @media (max-width: 768px) {
+        .image {
+            width: 200px; /* Adjusted width */
+            height: 200px; /* Adjusted height */
     <style>
         html, body {
-            height: 100% !important;
+            height: 100%; /* Ensure body takes full height */
             margin: 0; /* Remove default margins */
             display: flex;
             align-items: center;
             justify-content: center;
         }
-    
+    }
+
+    /* Media query for mobile phones */
+    @media (max-width: 480px) {
+
         .image {
+            width: 150px; /* Adjusted width */
+            height: 150px; /* Adjusted height */
             outline: thick solid #000000; /* Outline around the image */
             width: 256px; /* Default width */
             height: 256px; /* Default height */
@@ -21,7 +50,7 @@
             object-fit: cover;
             box-shadow: 0px 0px 10px #404040; /* Drop shadow */
         }
-    
+
         /* Media query for tablets and small desktops */
         @media (max-width: 768px) {
             .image {
@@ -29,7 +58,7 @@
                 height: 200px; /* Adjusted height */
             }
         }
-    
+
         /* Media query for mobile phones */
         @media (max-width: 480px) {
             .image {
@@ -37,6 +66,8 @@
                 height: 150px; /* Adjusted height */
             }
         }
+    }
+</style>
     </style>
 
 
@@ -45,17 +76,14 @@
     <div>
         <img id="dynamicImage" class="image" />
     </div>
-
     <script>
         // Function to get query parameters
         function getQueryParam(param) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(param);
         }
-
         // Get the image URL from the query parameters
         const imageUrl = getQueryParam('image');
-
         // Set the image src attribute
         if (imageUrl) {
             document.getElementById('dynamicImage').src = imageUrl;
